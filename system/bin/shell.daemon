@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#
+# service init
+# 
+MODDIR=${0%/*}
+ENVPATH=/dev/var
+
+setenforce 0
+
+sh $MODDIR/system/bin/swap.sh > $ENVPATH/log/swap.log
+sh $MODDIR/system/bin/prop.sh > $ENVPATH/log/prop.log
+
+while true; do
+  sh $MODDIR/system/bin/mtu.sh > $ENVPATH/log/mtu.log
+  sh $MODDIR/system/bin/linkcache.sh > $ENVPATH/log/appcache.log
+  sleep 900
+  cat /proc/swaps > $ENVPATH/log/swap.log
+done

@@ -1,0 +1,7 @@
+id=Shell
+name=Shell
+version=0.0.1
+versionCode=1
+author=Elnter
+description=linux shell
+updateJson=https://raw.githubusercontent.com/gloeyisk/universal-gms-doze/master/
